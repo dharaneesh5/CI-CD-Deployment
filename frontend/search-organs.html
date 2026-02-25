@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Organs - Organ Exchange</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Organ Exchange System</h1>
+            <ul class="nav-links">
+                <li><a href="/dashboard.html">Dashboard</a></li>
+                <li><a href="/my-inventory.html">My Inventory</a></li>
+                <li><a href="/search-organs.html">Search Organs</a></li>
+                <li><a href="/outgoing-requests.html">Outgoing Requests</a></li>
+                <li><a href="/incoming-requests.html">Incoming Requests</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h2>Search Available Organs</h2>
+        
+        <div class="search-filters">
+            <form id="searchForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="organ_type">Organ Type *</label>
+                        <select id="organ_type" name="organ_type" required>
+                            <option value="">Select Organ</option>
+                            <option value="Heart">Heart</option>
+                            <option value="Kidney">Kidney</option>
+                            <option value="Liver">Liver</option>
+                            <option value="Lungs">Lungs</option>
+                            <option value="Pancreas">Pancreas</option>
+                            <option value="Eye/Cornea">Eye/Cornea</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blood_group">Blood Group (Recommended)</label>
+                        <select id="blood_group" name="blood_group">
+                            <option value="">Any</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" placeholder="Enter city">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="district">District</label>
+                        <input type="text" id="district" name="district" placeholder="Enter district">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state" placeholder="Enter state">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Search Organs</button>
+            </form>
+        </div>
+
+        <div class="search-results">
+            <h3>Search Results</h3>
+            <div id="resultsContainer">
+                <p class="text-center">Use the filters above to search for available organs.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Request Modal -->
+    <div id="requestModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Request Organ</h3>
+            <form id="requestForm">
+                <input type="hidden" id="to_hospital_id" name="to_hospital_id">
+                <input type="hidden" id="organ_type_req" name="organ_type">
+                <input type="hidden" id="blood_group_req" name="blood_group">
+                
+                <div class="form-group">
+                    <label>Hospital: <span id="hospitalNameDisplay"></span></label>
+                </div>
+                
+                <div class="form-group">
+                    <label>Organ: <span id="organDisplay"></span></label>
+                </div>
+                
+                <div class="form-group">
+                    <label for="quantity_requested">Quantity Required *</label>
+                    <input type="number" id="quantity_requested" name="quantity_requested" min="1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="urgency_level">Urgency Level *</label>
+                    <select id="urgency_level" name="urgency_level" required>
+                        <option value="HIGH">High</option>
+                        <option value="MEDIUM">Medium</option>
+                        <option value="LOW">Low</option>
+                    </select>
+                </div>
+                
+                <div id="modalError" class="error-message" style="display: none;"></div>
+                <button type="submit" class="btn btn-primary">Send Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/search.js"></script>
+</body>
+</html>

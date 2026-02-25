@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outgoing Requests - Organ Exchange</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Organ Exchange System</h1>
+            <ul class="nav-links">
+                <li><a href="/dashboard.html">Dashboard</a></li>
+                <li><a href="/my-inventory.html">My Inventory</a></li>
+                <li><a href="/search-organs.html">Search Organs</a></li>
+                <li><a href="/outgoing-requests.html">Outgoing Requests</a></li>
+                <li><a href="/incoming-requests.html">Incoming Requests</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h2>Outgoing Requests</h2>
+        
+        <div class="requests-list">
+            <table id="requestsTable">
+                <thead>
+                    <tr>
+                        <th>Request ID</th>
+                        <th>To Hospital</th>
+                        <th>Location</th>
+                        <th>Organ</th>
+                        <th>Blood Group</th>
+                        <th>Quantity</th>
+                        <th>Urgency</th>
+                        <th>Status</th>
+                        <th>Requested At</th>
+                        <th>Contact Details</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="requestsBody">
+                    <tr>
+                        <td colspan="11" class="text-center">Loading requests...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/requests.js"></script>
+</body>
+</html>

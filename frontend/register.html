@@ -1,124 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Hospital - Organ Exchange</title>
+    <title>Register Institution - MED-SYNC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="container">
-            <h1 class="logo">Organ Exchange System</h1>
+            <a href="/" class="logo">MED-SYNC</a>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="/login.html">Login</a></li>
-                <li><a href="/register.html">Register</a></li>
+                <li><a href="/login.html">Hospital Login</a></li>
+                <li><a href="/register.html">Join Network</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="container">
-        <div class="form-container">
-            <h2>Hospital Registration</h2>
+        <div class="form-container" style="max-width: 800px;">
+            <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">Institutional Registration
+            </h2>
             <form id="registerForm">
-                <div class="form-section">
-                    <h3>Hospital Information</h3>
-                    
+                <section style="margin-bottom: 3rem;">
+                    <h3
+                        style="border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem; color: var(--secondary-color);">
+                        General Information</h3>
+
                     <div class="form-group">
                         <label for="name">Hospital Name *</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" placeholder="City General Hospital" required>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="form-group">
+                            <label for="license_no">License / Registration No. *</label>
+                            <input type="text" id="license_no" name="license_no" placeholder="LIC-12345-MED" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Institutional Email *</label>
+                            <input type="email" id="email" name="email" placeholder="contact@hospital.com" required>
+                        </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="license_no">License/Registration Number *</label>
-                        <input type="text" id="license_no" name="license_no" required>
+                        <label for="phone">Primary Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="0123456789" required>
                     </div>
+                </section>
 
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
+                <section style="margin-bottom: 3rem;">
+                    <h3
+                        style="border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem; color: var(--secondary-color);">
+                        Facility Address</h3>
 
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
-                        <small>10 digit mobile number</small>
-                    </div>
-                </div>
-
-                <div class="form-section">
-                    <h3>Address Information</h3>
-                    
                     <div class="form-group">
                         <label for="address">Street Address *</label>
-                        <textarea id="address" name="address" rows="2" required></textarea>
+                        <textarea id="address" name="address" rows="2" placeholder="123 Medical Avenue..."
+                            required></textarea>
                     </div>
 
-                    <div class="form-row">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                         <div class="form-group">
                             <label for="city">City *</label>
                             <input type="text" id="city" name="city" required>
                         </div>
-
                         <div class="form-group">
                             <label for="district">District *</label>
                             <input type="text" id="district" name="district" required>
                         </div>
                     </div>
 
-                    <div class="form-row">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                         <div class="form-group">
                             <label for="state">State *</label>
                             <input type="text" id="state" name="state" required>
                         </div>
-
                         <div class="form-group">
                             <label for="pincode">Pincode *</label>
-                            <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}" required>
+                            <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}" placeholder="123456"
+                                required>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div class="form-section">
-                    <h3>Contact Person Details</h3>
-                    
+                <section style="margin-bottom: 3rem;">
+                    <h3
+                        style="border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem; color: var(--secondary-color);">
+                        Coordination Contact</h3>
+
                     <div class="form-group">
-                        <label for="contact_person_name">Contact Person Name *</label>
-                        <input type="text" id="contact_person_name" name="contact_person_name" required>
+                        <label for="contact_person_name">Lead Coordinator Name *</label>
+                        <input type="text" id="contact_person_name" name="contact_person_name"
+                            placeholder="Dr. Sarah Johnson" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="contact_person_phone">Contact Person Phone *</label>
-                        <input type="tel" id="contact_person_phone" name="contact_person_phone" pattern="[0-9]{10}" required>
+                        <label for="contact_person_phone">Lead Coordinator Phone *</label>
+                        <input type="tel" id="contact_person_phone" name="contact_person_phone" pattern="[0-9]{10}"
+                            placeholder="0123456789" required>
                     </div>
-                </div>
+                </section>
 
-                <div class="form-section">
-                    <h3>Security</h3>
-                    
-                    <div class="form-group">
-                        <label for="password">Password *</label>
-                        <input type="password" id="password" name="password" minlength="8" required>
-                        <small>Minimum 8 characters</small>
+                <section style="margin-bottom: 3rem;">
+                    <h3
+                        style="border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; margin-bottom: 1.5rem; color: var(--secondary-color);">
+                        Network Security</h3>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="form-group">
+                            <label for="password">System Password *</label>
+                            <input type="password" id="password" name="password" minlength="8" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm_password">Confirm Password *</label>
+                            <input type="password" id="confirm_password" name="confirm_password" required>
+                        </div>
                     </div>
+                </section>
 
-                    <div class="form-group">
-                        <label for="confirm_password">Confirm Password *</label>
-                        <input type="password" id="confirm_password" name="confirm_password" required>
-                    </div>
-                </div>
+                <div id="errorMessage" class="error-message"
+                    style="display: none; padding: 1rem; margin-bottom: 2rem; border-radius: 8px;"></div>
+                <div id="successMessage" class="success-message"
+                    style="display: none; padding: 1rem; margin-bottom: 2rem; border-radius: 8px;"></div>
 
-                <div id="errorMessage" class="error-message" style="display: none;"></div>
-                <div id="successMessage" class="success-message" style="display: none;"></div>
-
-                <button type="submit" class="btn btn-primary btn-block">Register Hospital</button>
+                <button type="submit" class="btn btn-action"
+                    style="width: 100%; padding: 1.2rem; font-size: 1.1rem; border-radius: 12px;">Complete
+                    Registration</button>
             </form>
-            <p class="text-center">Already registered? <a href="/login.html">Login here</a></p>
+            <p class="text-center" style="margin-top: 2rem; font-size: 0.9rem;">
+                Already part of the network? <a href="/login.html"
+                    style="color: var(--secondary-color); font-weight: 600;">Secure Login</a>
+            </p>
         </div>
     </main>
 
     <script src="/js/api.js"></script>
     <script src="/js/auth.js"></script>
 </body>
+
 </html>

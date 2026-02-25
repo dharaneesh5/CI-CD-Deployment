@@ -1,55 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Incoming Requests - Organ Exchange</title>
+    <title>Incoming Requests - MED-SYNC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="container">
-            <h1 class="logo">Organ Exchange System</h1>
+            <a href="/dashboard.html" class="logo">MED-SYNC</a>
             <ul class="nav-links">
                 <li><a href="/dashboard.html">Dashboard</a></li>
-                <li><a href="/my-inventory.html">My Inventory</a></li>
-                <li><a href="/search-organs.html">Search Organs</a></li>
-                <li><a href="/outgoing-requests.html">Outgoing Requests</a></li>
-                <li><a href="/incoming-requests.html">Incoming Requests</a></li>
-                <li><a href="#" id="logoutBtn">Logout</a></li>
+                <li><a href="/my-inventory.html">Inventory</a></li>
+                <li><a href="/search-organs.html">Search Network</a></li>
+                <li><a href="/outgoing-requests.html">Outgoing</a></li>
+                <li><a href="/incoming-requests.html">Incoming</a></li>
+                <li><a href="#" id="logoutBtn" style="color: var(--error);">Logout</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="container">
-        <h2>Incoming Requests</h2>
-        
-        <div class="requests-list">
-            <table id="requestsTable">
-                <thead>
-                    <tr>
-                        <th>Request ID</th>
-                        <th>From Hospital</th>
-                        <th>Location</th>
-                        <th>Organ</th>
-                        <th>Blood Group</th>
-                        <th>Quantity</th>
-                        <th>Urgency</th>
-                        <th>Status</th>
-                        <th>Requested At</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="requestsBody">
-                    <tr>
-                        <td colspan="10" class="text-center">Loading requests...</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <header style="margin: 3rem 0;">
+            <h2 style="font-size: 2.5rem; color: var(--primary-color);">Incoming Coordination Requests</h2>
+            <p style="color: #666;">Review and respond to organ requests from other network institutions.</p>
+        </header>
+
+        <section style="margin-bottom: 5rem;">
+            <div class="table-container">
+                <table id="requestsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Origin Institution</th>
+                            <th>Location</th>
+                            <th>Target Organ</th>
+                            <th>Group</th>
+                            <th>Units</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Timestamp</th>
+                            <th style="text-align: right;">Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody id="requestsBody">
+                        <tr>
+                            <td colspan="10" class="text-center" style="padding: 3rem; color: #888;">Synchronizing with
+                                network coordination center...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </main>
 
     <script src="/js/api.js"></script>
+    <script src="/js/auth.js"></script>
     <script src="/js/requests.js"></script>
 </body>
+
 </html>

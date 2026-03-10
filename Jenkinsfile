@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_USER = "dharaneesh05"
+        DOCKERHUB_USER = "dharaneesh5"
         FRONTEND_IMAGE = "${DOCKERHUB_USER}/organ-frontend"
         BACKEND_IMAGE  = "${DOCKERHUB_USER}/organ-backend"
         TAG = "${BUILD_NUMBER}"

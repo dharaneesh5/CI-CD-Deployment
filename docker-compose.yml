@@ -1,0 +1,74 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: organ_db
+    env_file:
+      - ./backend/.env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - organ_network
+
+  backend:
+    image: dharaneesh05/organ-backend:latest
+    container_name: organ_backend
+    env_file:
+      - ./backend/.env
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: db
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      SECRET_KEY: ${SECRET_KEY}
+    depends_on:
+      - db
+    networks:
+      - organ_network
+
+  frontend:
+    image: dharaneesh05/organ-frontend:latest
+    container_name: organ_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - organ_network
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: organ-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - backend
+    networks:
+      - organ_network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: organ-grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - organ_network
+volumes:
+  db_data:
+
+networks:
+  organ_network:
+    driver: bridge

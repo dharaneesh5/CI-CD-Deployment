@@ -42,13 +42,11 @@ services:
     networks:
       - organ_network
 
-  prometheus:
-    image: prom/prometheus:latest
+    prometheus:
+    build: ./monitoring
     container_name: organ-prometheus
     ports:
       - "9090:9090"
-    volumes:
-      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
     depends_on:
       - backend
     networks:

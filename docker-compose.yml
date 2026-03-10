@@ -1,4 +1,5 @@
 services:
+
   db:
     image: mysql:5.7
     container_name: organ_db
@@ -42,7 +43,7 @@ services:
     networks:
       - organ_network
 
-    prometheus:
+  prometheus:
     build: ./monitoring
     container_name: organ-prometheus
     ports:

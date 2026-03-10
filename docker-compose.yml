@@ -19,7 +19,7 @@ services:
       - organ_network
 
   backend:
-    image: dharaneesh05/organ-backend:latest
+    image: dharaneesh5/organ-backend:latest
     container_name: organ_backend
     env_file:
       - ./backend/.env
@@ -37,7 +37,7 @@ services:
       - organ_network
 
   frontend:
-    image: dharaneesh05/organ-frontend:latest
+    image: dharaneesh5/organ-frontend:latest
     container_name: organ_frontend
     ports:
       - "80:80"
